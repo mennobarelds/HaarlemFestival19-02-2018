@@ -8,6 +8,6 @@ namespace WebApplication1.Repositories
 {
     public class DatabaseRepository : IDatabaseRepository
     {
-
+        public int test;
     }
 }
