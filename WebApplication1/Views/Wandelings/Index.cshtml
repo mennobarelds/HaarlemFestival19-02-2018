@@ -1,0 +1,75 @@
+﻿@model IEnumerable<WebApplication1.Models.Wandeling>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Duur)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BeginTijd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dag)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NaamEvenement)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaxPlaatsen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prijs)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Locatie)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Begeleider.Naam)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Duur)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BeginTijd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dag)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NaamEvenement)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaxPlaatsen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prijs)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Locatie)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Begeleider.Naam)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EvenementId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EvenementId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EvenementId })
+        </td>
+    </tr>
+}
+
+</table>
