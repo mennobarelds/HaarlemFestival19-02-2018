@@ -13,7 +13,7 @@ namespace WebApplication1.Controllers
     public class RestaurantsController : Controller
     {
         private HaarlemFilmDBContext db = new HaarlemFilmDBContext();
-
+        public int test1;
         // GET: Restaurants
         public ActionResult Index()
         {
