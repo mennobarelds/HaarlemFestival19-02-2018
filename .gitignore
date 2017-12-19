@@ -1,3 +1,7 @@
 
 WebApplication1/WebApplication1.csproj
 .vs/P22Test/v14/.suo
+*.config
+.vs/P22Test/v14/.suo
+WebApplication1/bin/WebApplication1.pdb
+WebApplication1/bin/WebApplication1.dll
