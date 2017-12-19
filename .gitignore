@@ -1,3 +1,11 @@
 
 WebApplication1/WebApplication1.csproj
 .vs/P22Test/v14/.suo
+*.config
+.vs/P22Test/v15/.suo
+.vs/P22Test/v15/Server/sqlite3/storage.ide
+.vs/P22Test/v15/Server/sqlite3/db.lock
+.vs/config/applicationhost.config
+WebApplication1/bin/WebApplication1.dll
+WebApplication1/bin/WebApplication1.pdb
+WebApplication1/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
