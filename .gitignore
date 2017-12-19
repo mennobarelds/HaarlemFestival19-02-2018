@@ -2,6 +2,21 @@
 WebApplication1/WebApplication1.csproj
 .vs/P22Test/v14/.suo
 *.config
+<<<<<<< HEAD
+.vs/P22Test/v15/.suo
+.vs/P22Test/v15/Server/sqlite3/storage.ide
+.vs/P22Test/v15/Server/sqlite3/db.lock
+.vs/config/applicationhost.config
+WebApplication1/bin/WebApplication1.dll
+WebApplication1/bin/WebApplication1.pdb
+WebApplication1/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+=======
 .vs/P22Test/v14/.suo
 WebApplication1/bin/WebApplication1.pdb
 WebApplication1/bin/WebApplication1.dll
+>>>>>>> dfa9eeb26714679ce2537b6606a8bd48bbda91e8
+*.dll
+*.dll
+*.cache
+*.txt
+*.cache
