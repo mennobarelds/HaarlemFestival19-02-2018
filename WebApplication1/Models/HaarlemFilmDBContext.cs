@@ -15,7 +15,7 @@ namespace WebApplication1.Models
         }
 
         public virtual DbSet<Evenement> Evenements { get; set; }
-        // public DbSet<Restaurant> Restaurants { get; set; }
+       
         public virtual DbSet<Restaurant> Restaurants { get; set; }
         public virtual DbSet<Wandeling> Wandelings { get; set; }
         public virtual DbSet<Concert> Concerts { get; set; }

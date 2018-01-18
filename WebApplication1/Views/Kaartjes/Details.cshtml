@@ -1,0 +1,58 @@
+﻿@model WebApplication1.Models.Kaartje
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Kaartje</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Evenement.NaamEvenement)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Evenement.NaamEvenement)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotaalPrijs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotaalPrijs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Aantal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Aantal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BijzonderhedenRestaurant)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BijzonderhedenRestaurant)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoortKaartje)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoortKaartje)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.KaartjeId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

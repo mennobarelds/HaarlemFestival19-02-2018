@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 
 namespace WebApplication1.Models
@@ -17,8 +18,12 @@ namespace WebApplication1.Models
 
         }
 
-        //[ForeignKey("Evenements")]
-        public virtual int EvenementId { get; set; }
-        public virtual Evenement Evenement { get; set; }
+
+        public int EvenementId { get; set; }
+        public Evenement Evenement { get; set; }
+
+        [ForeignKey("Bestelling")]
+        public int BestellingId { get; set; }
+        public Bestelling Bestelling { get; set; }
     }
 }

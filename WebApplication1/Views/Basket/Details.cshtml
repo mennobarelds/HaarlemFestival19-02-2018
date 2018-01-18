@@ -1,0 +1,50 @@
+﻿@model WebApplication1.Models.Bestelling
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Bestelling</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Klant.KlantId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Klant.KlantId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Betaald)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Betaald)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BestelCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BestelCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotaalPrijs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotaalPrijs)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BestellingId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

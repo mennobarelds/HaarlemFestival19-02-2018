@@ -1,0 +1,56 @@
+﻿@model WebApplication1.Models.Bestelling
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Bestelling</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Klant.KlantId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Klant.KlantId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Betaald)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Betaald)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BestelCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BestelCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotaalPrijs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotaalPrijs)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

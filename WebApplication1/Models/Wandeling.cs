@@ -6,6 +6,7 @@ namespace WebApplication1.Models
     [Table("Wandelings")]
     public class Wandeling : Evenement
     {
+
         public virtual int BegeleiderId { get; set; }
         public Begeleider Begeleider { get; set; }
 

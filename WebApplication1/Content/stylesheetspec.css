@@ -1,0 +1,104 @@
+#navbar ul {
+    margin-left: 22%;
+}
+.navbar.navbar-default{
+    margin-bottom:0;
+}
+body{
+    padding-top:0 !important;
+}
+#navbar div {
+    background-color: darkred;
+}
+
+.navbar-nav li a {
+    color: white !important;
+    font-weight: bold;
+}
+
+.navbar-nav .active li a {
+    background-color: orange !important;
+}
+
+button {
+    background-color: black;
+    color: white;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+button a {
+    color:white;
+}
+
+button a:hover {
+    text-decoration: none !important;
+    color: white;
+}
+
+button a:link {
+    text-decoration: none;
+}
+
+#homepage {
+    background-color: rgba(193, 180, 174, 1);
+}
+
+#content-block .container {
+    border: 1px solid;
+    background-color: white;
+}
+
+#slider.container-fluid {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+#navrow.row {
+    height: 7%;
+}
+
+#title {
+    position: absolute;
+    z-index: 1;
+    padding-left: 10%;
+    padding-right: 10;
+    display:block;
+}
+
+#footer .container {
+    border: 1px solid;
+    margin-top: 20px;
+    background-color: white;
+}
+
+#panels {
+    position: relative;
+    align-items: flex-end;
+}
+
+.informatie-blok#indexblok img {
+    border: 1px solid;
+    border-color: white;
+    position: absolute;
+    bottom: 55%;
+}
+
+div.container#borderweg {
+    border-top: none;
+}
+
+.informatie-blok#indexblok {
+    padding-top: 150px;
+}
+
+.informatie-blok#indexblok p {
+    height: 100px;
+}
+
+hr {
+    border: none;
+    background-color: lightgrey;
+    height: 2px !important;
+}
