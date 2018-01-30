@@ -1,0 +1,115 @@
+﻿@model IEnumerable<WebApplication1.Models.Wandeling>
+
+@{
+    ViewBag.Title = "Wandelings";
+}
+
+<div class="row">
+    <div id="content-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="jazztitle">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h2>Choose an event</h2>
+                                <p>Keuze</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div id="contentbreak">
+                        <div class="col-md-8 col-md-offset-3">
+                            <img src="~/images/administrative_tools_-_overview/manage_events_header_u1689.png" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div id="panels">
+                        <div class="container">
+                            <table class="table">
+                                <tr>
+                                    <th>
+                                        Date
+                                    </th>
+                                    <th>
+                                        Time
+                                    </th>
+                                    <th>
+                                        Start location
+                                    </th>
+                                    <th>
+                                        Language
+                                    </th>
+                                    <th>
+                                        Guide
+                                    </th>
+                                    <th>
+                                        Seats
+                                    </th>
+                                    <th>
+                                        Price
+                                    </th>
+                                    <th>
+                                        Group ticket
+                                    </th>
+                                    <th>
+                                        Reservation
+                                    </th>
+                                    <th>
+
+                                    </th>
+
+                                </tr>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Datum)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.BeginTijdString)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Locatie)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Begeleider.Taal)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Begeleider.Naam)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.MaxPlaatsen)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Prijs)
+                                        </td>
+                                        <td>
+                                            60,0
+                                        </td>
+                                        <td>
+                                            Mandatory
+                                        </td>
+                                        <td>
+                                            <span class="glyphicon glyphicon-edit">
+                                                @Html.ActionLink("Edit", "Edit", new { evenementId = item.EvenementId})
+                                            </span>
+                                            <span class="glyphicon glyphicon-remove-sign">
+                                                @Html.ActionLink("Remove", "Remove", new { evenementId = item.EvenementId })
+                                            </span>
+                                                
+                                        </td>
+                                    </tr>
+                                }
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

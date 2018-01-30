@@ -9,11 +9,9 @@ namespace WebApplication1.Repositories
 {
     public class RestaurantRepository : IRestaurantRepository
     {
-        private HaarlemFilmDBContext db = new HaarlemFilmDBContext();
-
         public void AddRestaurant(Restaurant restaurant)
         {
-            using (db)
+            using (HaarlemFilmDBContext db = new HaarlemFilmDBContext())
             {
                 db.Restaurants.Add(restaurant);
                 // executes the commands to implement the changes to the database
@@ -28,13 +26,25 @@ namespace WebApplication1.Repositories
 
         public IEnumerable<Restaurant> GetAllRestaurants()
         {
-            return db.Restaurants.ToList();
+            IEnumerable<Restaurant> restaurants;
+
+            using (HaarlemFilmDBContext db = new HaarlemFilmDBContext())
+            {
+                restaurants = db.Restaurants.ToList();
+            }
+
+            return restaurants;
         }
 
         public Restaurant GetRestaurant(int? evenementId)
         {
-            var evenement = from s in db.Restaurants where s.EvenementId.Equals(evenementId) select s;
-            return (Restaurant)evenement;
+            Restaurant restaurant;
+
+            using (HaarlemFilmDBContext db = new HaarlemFilmDBContext())
+            {
+                restaurant = db.Restaurants.Where(rest => rest.EvenementId == evenementId).SingleOrDefault();
+            }
+            return restaurant;
         }
 
         public void RemoveRestaurant(int? evenementId)

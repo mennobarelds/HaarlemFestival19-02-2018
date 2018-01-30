@@ -22,6 +22,25 @@ namespace WebApplication1.Controllers
             return View(concertRepos.GetAllConcerts());
         }
 
+        public ActionResult Details(int? evenementId)
+        {
+            if (evenementId != null)
+            {
+                return View(concertRepos.GetConcert(evenementId));
+            }
+            return View("Index");
+        }
+
+        public ActionResult DetailsPage(int? day)
+        {
+            if (day != null)
+            {
+                return View(concertRepos.GetConcertsByDay(day));
+            }
+            else {
+                return View("Index");
+            }
+        }
 
     }
 }

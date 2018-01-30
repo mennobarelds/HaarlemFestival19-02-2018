@@ -8,11 +8,9 @@ namespace WebApplication1.Repositories
 {
     public class ConcertRepository : IConcertRepository
     {
-        private HaarlemFilmDBContext db = new HaarlemFilmDBContext();
-
         public void AddConcert(Concert concert)
         {
-            using (db)
+            using (HaarlemFilmDBContext db = new HaarlemFilmDBContext())
             {
                 db.Concerts.Add(concert);
                 db.SaveChanges();
@@ -26,14 +24,36 @@ namespace WebApplication1.Repositories
 
         public IEnumerable<Concert> GetAllConcerts()
         {
-            var concerts = db.Concerts;
-            return (IEnumerable<Concert>)concerts;
+            IEnumerable<Concert> concerts;
+
+            using (HaarlemFilmDBContext db = new HaarlemFilmDBContext())
+            {
+                concerts = db.Concerts.ToList();
+            }
+
+            return concerts;
         }
 
         public Concert GetConcert(int? evenementId)
         {
-            var evenement = from s in db.Concerts where s.EvenementId.Equals(evenementId) select s;
-            return (Concert)evenement;
+            Concert concert;
+
+            using (HaarlemFilmDBContext db = new HaarlemFilmDBContext())
+            {
+                concert = db.Concerts.Where(conc => conc.EvenementId == evenementId).SingleOrDefault();
+            }
+
+            return concert;
+        }
+
+        public IEnumerable<Concert> GetConcertsByDay(int? day)
+        {
+            IEnumerable<Concert> concerts;
+            using (HaarlemFilmDBContext db = new HaarlemFilmDBContext())
+            {
+                concerts = db.Concerts.Where(conc => (int?)conc.Dag == day).ToList();
+            }
+            return concerts;
         }
 
         public void RemoveConcert(int? evenementId)

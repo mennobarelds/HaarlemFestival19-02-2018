@@ -28,12 +28,15 @@
 
                             <ul class="nav navbar-nav">
                                 <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                                <li>@Html.ActionLink("Jazz@Patronaat", "About", "Index")</li>
-                                <li>@Html.ActionLink("Dinner in Haarlem", "Contact", "Index")</li>
-                                <li>@Html.ActionLink("Talking Haarlem", "Contact", "Index")</li>
-                                <li>@Html.ActionLink("Historic Haarlem", "Contact", "Index")</li>
-                                <li>@Html.ActionLink("Contact", "Contact", "Index")</li>
-                                <li>@Html.ActionLink("Basket", "Contact", "Index")</li>
+                                <li>@Html.ActionLink("Jazz@Patronaat", "Index", "Concerts")</li>
+                                <li>@Html.ActionLink("Dinner in Haarlem", "Index", "Restaurants")</li>
+                                <li>@Html.ActionLink("Talking Haarlem", "Index", "Home")</li>
+                                <li>@Html.ActionLink("Historic Haarlem", "Index", "Wandelings")</li>
+                                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                                <li>
+                                    @Html.ActionLink("Basket", "Index", "Basket") 
+
+                                </li>
                             </ul>
                         </div>
                     </nav>

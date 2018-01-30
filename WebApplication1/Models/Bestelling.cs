@@ -15,12 +15,12 @@ namespace WebApplication1.Models
         }
 
         [Key]
-        public virtual int BestellingId { get; set; }
-        public virtual bool Betaald { get; set; }
-        public virtual string BestelCode { get; set; }
-        public virtual float TotaalPrijs { get; set; }
+        public int BestellingId { get; set; }
+        public bool Betaald { get; set; }
+        public string BestelCode { get; set; }
+        public float TotaalPrijs { get; set; }
 
-        public virtual ICollection<Kaartje> Kaartjes { get; set; }
+        public List<Kaartje> Kaartjes { get; set; }
 
         [ForeignKey("Klant")]
         public int KlantId { get; set; }

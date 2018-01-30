@@ -7,7 +7,7 @@ namespace WebApplication1.Models
     public class Wandeling : Evenement
     {
 
-        public virtual int BegeleiderId { get; set; }
+        public int BegeleiderId { get; set; }
         public Begeleider Begeleider { get; set; }
 
         public Wandeling()

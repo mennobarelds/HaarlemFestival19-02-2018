@@ -202,8 +202,11 @@
     <Compile Include="Controllers\ConcertsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ManagementController.cs" />
+    <Compile Include="Controllers\Restaurants1Controller.cs" />
     <Compile Include="Controllers\RestaurantsController.cs" />
     <Compile Include="Controllers\WandelingsController.cs" />
+    <Compile Include="Enums\Enums.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -212,6 +215,7 @@
     <Compile Include="Models\Bestelling.cs" />
     <Compile Include="Models\Concert.cs" />
     <Compile Include="Models\Evenement.cs" />
+    <Compile Include="Models\EvenementModelView.cs" />
     <Compile Include="Models\HaarlemFilmDBContext.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Kaartje.cs" />
@@ -230,6 +234,7 @@
     <Compile Include="Repositories\IWandelingRepository.cs" />
     <Compile Include="Repositories\RestaurantRepository.cs" />
     <Compile Include="Repositories\WandelingRepository.cs" />
+    <Compile Include="Sessions\BasketSession.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -544,6 +549,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Sessions\ExcelLibrary.dll" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -580,20 +586,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Restaurants\Create.cshtml" />
-    <Content Include="Views\Restaurants\Delete.cshtml" />
     <Content Include="Views\Restaurants\Details.cshtml" />
-    <Content Include="Views\Restaurants\Edit.cshtml" />
     <Content Include="Views\Restaurants\Index.cshtml" />
-    <Content Include="Views\Wandelings\Create.cshtml" />
-    <Content Include="Views\Wandelings\Delete.cshtml" />
     <Content Include="Views\Wandelings\Details.cshtml" />
-    <Content Include="Views\Wandelings\Edit.cshtml" />
     <Content Include="Views\Wandelings\Index.cshtml" />
-    <Content Include="Views\Concerts\Create.cshtml" />
-    <Content Include="Views\Concerts\Delete.cshtml" />
     <Content Include="Views\Concerts\Details.cshtml" />
-    <Content Include="Views\Concerts\Edit.cshtml" />
     <Content Include="Views\Concerts\Index.cshtml" />
     <Content Include="Views\Begeleiders\Create.cshtml" />
     <Content Include="Views\Begeleiders\Delete.cshtml" />
@@ -615,6 +612,16 @@
     <Content Include="Views\Basket\Details.cshtml" />
     <Content Include="Views\Basket\Edit.cshtml" />
     <Content Include="Views\Basket\Index.cshtml" />
+    <Content Include="Views\Concerts\DetailsPage.cshtml" />
+    <Content Include="Views\Basket\AddKaartje.cshtml" />
+    <Content Include="Views\Management\Create.cshtml" />
+    <Content Include="Views\Management\Delete.cshtml" />
+    <Content Include="Views\Management\Details.cshtml" />
+    <Content Include="Views\Management\Edit.cshtml" />
+    <Content Include="Views\Management\Index.cshtml" />
+    <Content Include="Views\Management\Restaurants.cshtml" />
+    <Content Include="Views\Management\Concerts.cshtml" />
+    <Content Include="Views\Management\Wandelings.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

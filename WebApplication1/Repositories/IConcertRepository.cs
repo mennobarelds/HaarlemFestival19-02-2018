@@ -8,6 +8,7 @@ namespace WebApplication1.Repositories
         void AddConcert(Concert concert);
         Concert GetConcert(int? evenementId);
         IEnumerable<Concert> GetAllConcerts();
+        IEnumerable<Concert> GetConcertsByDay(int? day);
         void RemoveConcert(int? evenementId);
         void EditConcert(int? evenementId);
     }

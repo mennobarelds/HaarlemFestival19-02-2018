@@ -12,6 +12,7 @@ namespace WebApplication1.Models
         public virtual int Aantal { get; set; }
         public virtual string BijzonderhedenRestaurant { get; set; }
         public virtual int SoortKaartje { get; set; }
+        public virtual int DagEvenement { get; set; }
 
         public Kaartje()
         {

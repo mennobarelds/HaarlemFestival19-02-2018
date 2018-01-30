@@ -18,9 +18,23 @@ namespace WebApplication1.Controllers
         // GET: Restaurants
         public ActionResult Index()
         {
+            IBasketRepository basketRep = new BasketRepository();
+
             return View(restaurantRepos.GetAllRestaurants());
         }
 
-      
+        [HttpGet]
+        public ActionResult Details(int? evenementId)
+        {
+            // Controleer of er een geldige invoer is van EvenementId.
+            if (evenementId != null) {
+                return View(restaurantRepos.GetRestaurant(evenementId));
+            }
+            return View("Index");
+        }
+
+
+
+
     }
 }

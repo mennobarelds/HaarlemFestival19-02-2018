@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="row">
+    <div id="content-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="management">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3>Manage events</h3>
+                                <p>By clicking one of these buttons you will be navigated to another page where you can Add, 
+                                Update and Delete data of the chosen event.</p>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <button>@Html.ActionLink("Jazz@Patronaat","Concerts")</button>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <button>@Html.ActionLink("Dinner in Haarlem", "Restaurants")</button>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <button>@Html.ActionLink("Talking Haarlem", "Index")</button>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <button>@Html.ActionLink("Historic Haarlem", "Wandelings")</button>
+                                        </div>
+                                    </div>
+
+                            </div>
+                            <div class="col-md-6">
+                                <h3>Tickets and sales</h3>
+                                <button>Download</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

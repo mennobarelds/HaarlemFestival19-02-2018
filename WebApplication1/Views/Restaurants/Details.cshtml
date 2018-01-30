@@ -89,7 +89,9 @@
         <dd>
             @Html.DisplayFor(model => model.Sessies)
         </dd>
-
+        <dd>
+            @Html.ActionLink("Order now", "AddKaartje", "Basket", new { evenementId = Model.EvenementId}, null)
+        </dd>
     </dl>
 </div>
 <p>

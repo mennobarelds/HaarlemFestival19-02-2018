@@ -1,51 +1,90 @@
-﻿@model IEnumerable<WebApplication1.Models.Bestelling>
+﻿@model WebApplication1.Models.Bestelling
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Basket";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.KlantId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Betaald)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BestelCode)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TotaalPrijs)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.KlantId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Betaald)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BestelCode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TotaalPrijs)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.BestellingId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BestellingId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BestellingId })
-        </td>
-    </tr>
-}
 
-</table>
+<div class="row">
+    <div id="content-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="jazztitle">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h2>Your shopping basket</h2>
+                                <p>On this page you can edit items in your basket. Finish your order today, or continue to do 
+                                this another day with your unique order-code. Do note that events may get sold out, even though 
+                                you may already have added some items to your basket.
+                                </p>
+                                <h3>Your personal order-code is <strong>@Html.DisplayFor(model => model.BestelCode)</strong></h3>
+                            </div>
+                            <div class="col-md-2">
+                                <img src="~/images/dinner_in_haarlem/u2478.png" />
+                            </div>
+                            <div class="col-md-2">
+                                <img src="~/images/dinner_in_haarlem/u2476.png" />
+                            </div>
+                            <div class="col-md-2">
+                                <img src="~/images/dinner_in_haarlem/u2474.png" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div id="contentbreak">
+                        <div class="col-md-8 col-md-offset-3">
+                            <img src="~/images/dinner_in_haarlem/restaurant_information_u2441.png" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div id="panels">
+                        <div class="container">
+                            <table class="table">
+                                <tr>
+                                    <th>
+                                        Tickets
+                                    </th>
+                                    <th>
+                                        Event
+                                    </th>
+                                    <th>
+                                        Date and Time
+                                    </th>
+                                    <th>
+                                        Price
+                                    </th>
+                                </tr>
+                                @for (var a = 0; a < Model.Kaartjes.Count; a++)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => Model.Kaartjes[a].Aantal)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => Model.Kaartjes[a].Evenement.NaamEvenement)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => Model.Kaartjes[a].Evenement.BeginTijdString)
+                                            on 
+                                            @Html.DisplayFor(modelItem => Model.Kaartjes[a].Evenement.Datum)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => Model.Kaartjes[a].TotaalPrijs)
+                                        </td>
+                                    </tr>
+                                }
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -17,12 +17,18 @@ namespace WebApplication1.Repositories
 
         public IEnumerable<Wandeling> GetAllWandelings()
         {
-            IEnumerable<Wandeling> wandelings = db.Wandelings;
+            IEnumerable<Wandeling> wandelings;
+
+            using (HaarlemFilmDBContext db = new HaarlemFilmDBContext())
+            {
+                wandelings = db.Wandelings.Include("Begeleider").OrderBy(m => m.EvenementId).ToList();
+            }
             return wandelings;
         }
 
         public Wandeling GetWandeling(int? evenementId)
         {
+            
             throw new NotImplementedException();
         }
     }

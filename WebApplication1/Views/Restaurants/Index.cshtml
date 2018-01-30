@@ -1,87 +1,81 @@
 ﻿@model IEnumerable<WebApplication1.Models.Restaurant>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Restaurants";
 }
 
-<h2>Index</h2>
+<div class="row">
+    <div id="content-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="jazztitle">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h2>Dinner in Haarlem</h2>
+                                <p>Dinner in Haarlem makes it easy for you to find a restaurant in the centrum of Haarlem. On this page you will find all the participating restaurants and a little bit of information about them. For each restaurant there are three timeslots, which can be found by pressing the information button of your desired restaurant. The price shown on this page is the normal price, for children under 12 years there is a reduced price. This price can also be found by pressing the information button.</p>
+                            </div>
+                            <div class="col-md-2">
+                                <img src="~/images/dinner_in_haarlem/u2478.png" />
+                            </div>
+                            <div class="col-md-2">
+                                <img src="~/images/dinner_in_haarlem/u2476.png" />
+                            </div>
+                            <div class="col-md-2">
+                                <img src="~/images/dinner_in_haarlem/u2474.png" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Duur)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BeginTijd)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Dag)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NaamEvenement)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MaxPlaatsen)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Prijs)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Locatie)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Sterren)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SoortKeuken)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Sessies)
-        </th>
-        <th></th>
-    </tr>
+                <div class="row">
+                    <div id="contentbreak">
+                        <div class="col-md-8 col-md-offset-3">
+                            <img src="~/images/dinner_in_haarlem/restaurant_information_u2441.png" />
+                        </div>
+                    </div>
+                </div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Duur)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BeginTijd)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Dag)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NaamEvenement)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MaxPlaatsen)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Prijs)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Locatie)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Sterren)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SoortKeuken)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Sessies)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EvenementId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EvenementId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EvenementId })
-        </td>
-    </tr>
-}
+                <div class="row">
+                    <div id="contentbreak">
+                        <div class="col-md-4 col-md-offset-5">
+                            <p>Cuisine</p>
+                            <select name="cars">
+                                <option value="selectoption">[Select an option]</option>
+                                <option value="argentinian">1. Argentinian</option>
+                                <option value="asian">2. Asian</option>
+                                <option value="dutch">3. Dutch</option>
+                                <option value="european">4. European</option>
+                                <option value="fish">5. Fish and seafood</option>
+                                <option value="french">6. French</option>
+                                <option value="international">7. International</option>
+                                <option value="modern">8. Modern</option>
+                                <option value="steakhouse">9. Steakhouse</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
 
-</table>
+                <div class="row">
+                    <div id="panels">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-md-3">
+                            <div class="dinner-blok">
+                                <img src="~/images/dinner_in_haarlem/@Html.DisplayFor(modelItem => item.ImageUrl)" />
+                                <h3>@Html.DisplayFor(modelItem => item.NaamEvenement)</h3>
+                                <p>
+                                    <b>Cuisines:</b>@Html.DisplayFor(modelItem => item.SoortKeuken)<br />
+                                    <b>Rating:</b>@Html.DisplayFor(modelItem => item.Sterren)<br />
+                                    <b>Price:</b>@Html.DisplayFor(modelItem => item.Prijs) 
+                                </p>
+                                @Html.ActionLink("Make a reservation", "Details", new { evenementId = item.EvenementId},null)
+                            </div>
+                        </div>
+                    }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
