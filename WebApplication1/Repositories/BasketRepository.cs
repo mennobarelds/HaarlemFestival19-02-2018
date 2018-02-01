@@ -65,6 +65,16 @@ namespace WebApplication1.Repositories
             return kaartje;
         }
 
+        public void PayBestelling(int bestelId)
+        {
+            using (HaarlemFilmDBContext db = new HaarlemFilmDBContext())
+            {
+                Bestelling a = db.Bestelling.Where(bestel => bestel.BestellingId == bestelId).SingleOrDefault();
+                a.Betaald = true;
+                db.SaveChanges();
+            }
+        }
+
         public int AddKlant()
         {
             Klant klant = new Klant();

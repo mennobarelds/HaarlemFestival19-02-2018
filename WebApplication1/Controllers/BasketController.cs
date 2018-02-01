@@ -113,5 +113,11 @@ namespace WebApplication1.Controllers
             return View("Index");
         }
 
+        public ActionResult Payment(int bestelId)
+        {
+            basketRepos.PayBestelling(bestelId);
+            return View();
+        }
+
     }
 }

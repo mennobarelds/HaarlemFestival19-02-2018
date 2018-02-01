@@ -17,7 +17,7 @@ namespace WebApplication1.Repositories
         IEnumerable<Kaartje> GetAllKaartjes(int bestellingId);
 
         void EditKaartje(Bestelling basket);
-
+        void PayBestelling(int bestelId);
         void RemoveKaartje(Bestelling basket);
         void RemoveBestelling(Bestelling basket);
 
