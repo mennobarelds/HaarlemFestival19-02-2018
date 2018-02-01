@@ -21,13 +21,13 @@ namespace WebApplication1.Controllers
         {
             int? bestelId = (int?)HttpContext.Session["BestelId"];
 
-            if (bestelId != null)
+            if (bestelId != 0)
             {
                 return View(basketRepos.GetAllBestellingInfo(bestelId));
             }
             else
             {
-                return View(basketRepos.GetAllBestellingInfo(23));
+                return View(basketRepos.GetAllBestellingInfo(bestelId));
             }
             // return View();
         }
@@ -52,6 +52,8 @@ namespace WebApplication1.Controllers
         }
         */
 
+        //GetBestelIdByCode
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Bestelling bestelling)
@@ -61,35 +63,54 @@ namespace WebApplication1.Controllers
         }
 
         [HttpGet]
-        public ActionResult AddKaartje(int evenementId)
+        public ActionResult AddKaartje()
+        {
+            return View("Index");
+        }
+
+        [HttpPost]
+        public ActionResult AddKaartje(int evenementId, int aantal, int prijs, SoortKaartje soortKaartje, string bijzonderheden, Dag dag)
         {
             Kaartje kaartje = new Kaartje();
-            kaartje.Aantal = 1;
-            kaartje.TotaalPrijs = 10;
-            kaartje.BijzonderhedenRestaurant = "Rolstoel en allergisch voor pinda's";
-            kaartje.SoortKaartje = 2;
-            kaartje.DagEvenement = 2;
+            kaartje.Aantal = aantal;
+            kaartje.DagEvenement = (int)dag;
+            kaartje.TotaalPrijs = prijs * aantal;
+            kaartje.BijzonderhedenRestaurant = bijzonderheden;
+            kaartje.SoortKaartje = (int)soortKaartje;
+            kaartje.DagEvenement = 3;
             kaartje.EvenementId = evenementId;
 
             Bestelling bestelling = basketRepos.AddBestelling(kaartje);
 
-            return View("Index",bestelling);
+            return View("Index", bestelling);
         }
 
         [HttpGet]
-        public ActionResult AddKaartje(Evenement evenement)
+        public ActionResult GetOrder()
         {
-            Kaartje kaartje = new Kaartje();
-            kaartje.Aantal = 1;
-            kaartje.TotaalPrijs = 10;
-            kaartje.BijzonderhedenRestaurant = "Rolstoel en allergisch voor pinda's";
-            kaartje.SoortKaartje = 2;
-            kaartje.DagEvenement = 2;
-            // kaartje.EvenementId = evenementId;
 
-            Bestelling bestelling = basketRepos.AddBestelling(kaartje);
+            return View("Index");
+        }
 
-            return View("Index", bestelling);
+        [HttpPost]
+        public ActionResult GetOrder(Bestelling bestelling)
+        {
+            string ordercode = bestelling.BestelCode;
+            HttpContext.Session["BestelCode"] = ordercode;
+
+            int bestelId = basketRepos.GetBestelIdByCode(ordercode);
+
+            if (bestelId == 0)
+            {
+                HttpContext.Session["BestelId"] = 0;
+                return View("GetOrder");
+            }
+            else
+            {
+                HttpContext.Session["BestelId"] = bestelId;
+                return View("GetOrder");
+            }
+            return View("Index");
         }
 
     }

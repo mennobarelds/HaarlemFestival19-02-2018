@@ -85,19 +85,27 @@ namespace WebApplication1.Repositories
         public Bestelling GetAllBestellingInfo(int? bestellingId)
         {
             Bestelling bestelling;
-
+            
             using (HaarlemFilmDBContext db = new HaarlemFilmDBContext())
             {
-                // Bestelling adden maar ook kaartjes moeten apart....
-                bestelling = db.Bestelling.Where(best => best.BestellingId == bestellingId).SingleOrDefault();
+                if (bestellingId != 0 && bestellingId != null)
+                {
+                    // Bestelling adden maar ook kaartjes moeten apart....
+                    bestelling = db.Bestelling.Where(best => best.BestellingId == bestellingId).SingleOrDefault();
+                    //bestelling = db.Bestelling.Any(best => best.BestellingId == bestellingId).SingleOrDefault(;
+                    bestelling.Kaartjes = (List<Kaartje>)GetAllKaartjes((int)bestellingId);
+                }
+                else
+                {
+                    bestelling = new Bestelling();
+                    bestelling.BestellingId = 0;
+                }
+
             }
-
-            bestelling.Kaartjes = (List<Kaartje>)GetAllKaartjes(bestellingId);
-
             return bestelling;
         }
 
-        public IEnumerable<Kaartje> GetAllKaartjes(int? bestellingId)
+        public IEnumerable<Kaartje> GetAllKaartjes(int bestellingId)
         {
             IEnumerable<Kaartje> kaartjes;
 
@@ -141,6 +149,25 @@ namespace WebApplication1.Repositories
         public void RemoveKaartje(Bestelling basket)
         {
             throw new NotImplementedException();
+        }
+
+        public int GetBestelIdByCode(string bestelcode)
+        {
+            int bestelId;
+
+            using (HaarlemFilmDBContext db = new HaarlemFilmDBContext())
+            {
+                if (db.Bestelling.Any(bestelid => bestelid.BestelCode == bestelcode)) {
+                    Bestelling bestelling = db.Bestelling.Where(bestel => bestel.BestelCode == bestelcode).SingleOrDefault();
+                    bestelId = bestelling.BestellingId;
+                }
+                else
+                {
+                    bestelId = 0;
+                }
+            }
+
+            return bestelId;
         }
 
         // GetBestelcode, nieuwe bestelling.
