@@ -33,6 +33,7 @@ namespace WebApplication1.Controllers
             }
             return View("Details");
         }
+        [HttpGet]
         public ActionResult BookTour(int? evenementId)
         {
             // Controleer of er een geldige invoer is van EvenementId.
