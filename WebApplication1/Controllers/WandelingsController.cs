@@ -19,5 +19,28 @@ namespace WebApplication1.Controllers
         {
             return View(wandelingRepos.GetAllWandelings());
         }
+        public ActionResult Details()
+        {
+            return View(wandelingRepos.GetAllWandelings());
+        }
+        [HttpGet]
+        public ActionResult Details(int? evenementId)
+        {
+            // Controleer of er een geldige invoer is van EvenementId.
+            if (evenementId != null)
+            {
+                return View(wandelingRepos.GetWandeling(evenementId));
+            }
+            return View("Details");
+        }
+        public ActionResult BookTour(int? evenementId)
+        {
+            // Controleer of er een geldige invoer is van EvenementId.
+            if (evenementId != null)
+            {
+                return View(wandelingRepos.GetWandeling(evenementId));
+            }
+            return View("BookTour");
+        }
     }
 }

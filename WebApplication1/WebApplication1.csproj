@@ -402,6 +402,12 @@
     <Content Include="images\historic_haarlem_-_reservation\top_img_3_u1335.jpg" />
     <Content Include="images\historic_haarlem_-_reservation\u1539.jpg" />
     <Content Include="images\historic_haarlem_-_reservation\u1597.png" />
+    <Content Include="images\historic_haarlem_book\top_img_1_u18.jpg" />
+    <Content Include="images\historic_haarlem_book\top_img_2_u17.jpg" />
+    <Content Include="images\historic_haarlem_book\top_img_3_u16.jpg" />
+    <Content Include="images\historic_haarlem_book\u150.jpg" />
+    <Content Include="images\historic_haarlem_map\Map.png" />
+    <Content Include="images\historic_haarlem_map\p8.jpg" />
     <Content Include="images\home\dinner.png" />
     <Content Include="images\home\historic.png" />
     <Content Include="images\home\patronaat.png" />
@@ -622,6 +628,7 @@
     <Content Include="Views\Management\Restaurants.cshtml" />
     <Content Include="Views\Management\Concerts.cshtml" />
     <Content Include="Views\Management\Wandelings.cshtml" />
+    <Content Include="Views\Wandelings\BookTour.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

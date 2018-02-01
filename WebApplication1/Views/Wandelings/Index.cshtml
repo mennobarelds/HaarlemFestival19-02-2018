@@ -4,72 +4,84 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h1>Historic Haarlem</h1>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Duur)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BeginTijd)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Dag)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NaamEvenement)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MaxPlaatsen)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Prijs)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Locatie)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Begeleider.Naam)
-        </th>
-        <th></th>
-    </tr>
+<div class="row">
+    <div id="content-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="jazztitle">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h2>Historic Haarlem</h2>
+                                <p>Welcome on the Historic Haarlem page, here you will find information about the historic tour through Haarlem. Here you will find information about: the locations, the available days and the available languages.</p>
+                            </div>
+                            <div class="col-md-2">
+                                <img src="~/images/historic_haarlem/u1238.png" />
+                            </div>
+                            <div class="col-md-2">
+                                <img src="~/images/historic_haarlem/u1236.png" />
+                            </div>
+                            <div class="col-md-2">
+                                <img src="~/images/historic_haarlem/u1234.png" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Duur)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BeginTijd)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Dag)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NaamEvenement)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MaxPlaatsen)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Prijs)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Locatie)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Begeleider.Naam)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EvenementId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EvenementId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EvenementId })
-        </td>
-    </tr>
-}
+                <div class="row">
+                    <div id="contentbreak">
+                        <div class="col-md-8 col-md-offset-3">
+                            <img src="~/images/historic_haarlem/title_locations_u1176.jpg" />
+                        </div>
+                    </div>
+                </div>
 
-</table>
+                <div class="row">
+                    <div id="contentbreak">
+                        <div class="col-md-2 col-md-offset-5">
+                            <button>@Html.ActionLink("Location", "Index")</button>
+                            <button>@Html.ActionLink("Map", "Details")</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div id="panels">
+                        <div class="col-md-8">
+                            <img src="~/images/historic_haarlem/afb_moodbord_u1166.jpg" style="width:100%" />
+                        </div>
+                        <div class="col-md-4">
+                            <p>In this tour you will walk through the history of Haarlem. You will visit the most important historic locations of the city, the guide will explain what the importance of the location is for the city.</p>
+
+                            <h2>About the tour</h2>
+
+                            <p>There are multiple tours per day, on the booking page you can pick preferred date and time.</p>
+
+                            <p>The tour will take approximately 2,5 hours. During the tour there will be a 15 minute break with refreshments (one drink per person).</p>
+
+                            <p>The tour will start at the 'Grote Markt', near the 'Church of St. Bavo'. The start location will be marked with a giant flag ‘Historic Haarlem, walking the ages’.</p>
+
+                            <h2>Venues to visit are:</h2>
+
+                            <ul class="venues">
+                                <li>1. Church of St. Bavo</li>
+                                <li>2. Grote Markt</li>
+                                <li>3. De Hallen</li>
+                                <li>4. Proveniershof</li>
+                                <li>5. Jopenkerk (Break location)</li>
+                                <li>6. Waalse Kerk Haarlem</li>
+                                <li>7. Molen de Adriaan</li>
+                                <li>8. Amsterdamse Poort</li>
+                                <li>9. Hof van Bakenes</li>
+                            </ul>
+
+                            <button>@Html.ActionLink("Book Tour", "BookTour")</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
