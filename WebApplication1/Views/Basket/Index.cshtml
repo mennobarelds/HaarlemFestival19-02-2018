@@ -4,9 +4,6 @@
     ViewBag.Title = "Basket";
 }
 
-
-
-
 <div class="row">
     <div id="content-block">
         <div class="container">
@@ -16,11 +13,29 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <h2>Your shopping basket</h2>
-                                <p>On this page you can edit items in your basket. Finish your order today, or continue to do 
-                                this another day with your unique order-code. Do note that events may get sold out, even though 
-                                you may already have added some items to your basket.
-                                </p>
-                                <h3>Your personal order-code is <strong>@Html.DisplayFor(model => model.BestelCode)</strong></h3>
+                                
+                                @if (Model.BestellingId != 0)
+                                {
+                                    <p>On this page you can edit items in your basket. Finish your order today, or continue to do
+                                    this another day with your unique order-code. Do note that events may get sold out, even though
+                                    you may already have added some items to your basket.</p>
+                                    <h3>Your personal order-code is <strong>@Html.DisplayFor(model => model.BestelCode)</strong></h3>
+                                    <hr />
+                                }
+                                else
+                                {
+                                    <p>Your shopping basket seems empty! Not to worry, we have lots of great events to offer you.</p>
+                                }
+
+                                <p>Do you have a previous order code you wish to resume? Enter your order code here</p>
+                                @using (Html.BeginForm("GetOrder", "Basket", FormMethod.Post))
+                                {
+                                    @Html.ValidationSummary(true)
+                                    <fieldset>
+                                        @Html.TextBoxFor(model => model.BestelCode)
+                                        <input type="submit" value="Upload" />
+                                    </fieldset>
+                                }
                             </div>
                             <div class="col-md-2">
                                 <img src="~/images/dinner_in_haarlem/u2478.png" />
@@ -35,6 +50,7 @@
                     </div>
                 </div>
 
+                
                 <div class="row">
                     <div id="contentbreak">
                         <div class="col-md-8 col-md-offset-3">
@@ -43,9 +59,12 @@
                     </div>
                 </div>
 
+                @if (Model.BestellingId != 0)
+                {
                 <div class="row">
                     <div id="panels">
                         <div class="container">
+                           
                             <table class="table">
                                 <tr>
                                     <th>
@@ -61,8 +80,10 @@
                                         Price
                                     </th>
                                 </tr>
-                                @for (var a = 0; a < Model.Kaartjes.Count; a++)
-                                {
+                                
+
+                                    @for (var a = 0; a < Model.Kaartjes.Count; a++)
+                                    {
                                     <tr>
                                         <td>
                                             @Html.DisplayFor(modelItem => Model.Kaartjes[a].Aantal)
@@ -72,18 +93,30 @@
                                         </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => Model.Kaartjes[a].Evenement.BeginTijdString)
-                                            on 
+                                            on
                                             @Html.DisplayFor(modelItem => Model.Kaartjes[a].Evenement.Datum)
                                         </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => Model.Kaartjes[a].TotaalPrijs)
                                         </td>
                                     </tr>
-                                }
+                                    }
                             </table>
                         </div>
                     </div>
                 </div>
+                }
+                else
+                {
+                    <div class="row">
+                        <div id="panels">
+                            <div class="container">
+                                <p>Your shopping cart seems empty.</p>     
+                            </div>
+                        </div>
+                    </div>
+                }
+
             </div>
         </div>
     </div>

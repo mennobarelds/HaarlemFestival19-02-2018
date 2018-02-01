@@ -10,10 +10,10 @@ namespace WebApplication1.Models
     public class Medewerker
     {
         [Key]
-        public virtual int MedewerkerId { get; set; }
-        public virtual string Naam { get; set; }
-        public virtual string GebruikersNaam { get; set; }
-        public virtual string Wachtwoord { get; set; }
+        public int MedewerkerId { get; set; }
+        public string Naam { get; set; }
+        public string GebruikersNaam { get; set; }
+        public string Wachtwoord { get; set; }
 
         public Medewerker()
         {

@@ -14,7 +14,7 @@ namespace WebApplication1.Repositories
         int AddKlant();
 
         Bestelling GetAllBestellingInfo(int? bestellingId);
-        IEnumerable<Kaartje> GetAllKaartjes(int? bestellingId);
+        IEnumerable<Kaartje> GetAllKaartjes(int bestellingId);
 
         void EditKaartje(Bestelling basket);
 
@@ -22,6 +22,7 @@ namespace WebApplication1.Repositories
         void RemoveBestelling(Bestelling basket);
 
         string GetBestelcode();
+        int GetBestelIdByCode(string bestelcode);
         string GetBestelcode(int bestellingId);
         string CreateBestelcode();
         bool BestelcodeExists(string bestelcode);

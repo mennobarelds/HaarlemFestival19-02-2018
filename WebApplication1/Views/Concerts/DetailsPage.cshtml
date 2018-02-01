@@ -1,10 +1,8 @@
 ﻿@model IEnumerable<WebApplication1.Models.Concert>
 
 @{
-    ViewBag.Title = "DetailsPage";
+    ViewBag.Title = "Concerts on ";
 }
-
-<h2>DetailsPage</h2>
 
 <div class="row">
     <div id="content-block">
@@ -14,17 +12,17 @@
                     <div id="jazztitle">
                         <div class="row">
                             <div class="col-md-6">
-                                <h2>Jazz@Patronaat - Thursday</h2>
+                                <h2>Jazz@Patronaat - @ViewBag.dag</h2>
                                 <p>On thursday you have got a choice of 6 different jazz bands. The 6 bands are performing over 2 Halls in the Patronaat.</p>
                             </div>
                             <div class="col-md-2">
-                                <img src="images/jazz_patronaat/patronaat1.png" />
+                                <img src="~/images/jazz_patronaat/patronaat1.png" />
                             </div>
                             <div class="col-md-2">
-                                <img src="images/jazz_patronaat_-_thursday/image_2_u379.png" />
+                                <img src="~/images/jazz_patronaat_-_thursday/image_2_u379.png" />
                             </div>
                             <div class="col-md-2">
-                                <img src="images/jazz_patronaat_-_thursday/image_3_u381.png" />
+                                <img src="~/images/jazz_patronaat_-_thursday/image_3_u381.png" />
                             </div>
                         </div>
                     </div>
@@ -33,11 +31,11 @@
                 <div class="row">
                     <div id="contentbreak">
                         <div class="col-md-1">
-                            <Button><a href="jazz.html">Back to Jazz@Patronaat</a></Button>
+                            <Button>@Html.ActionLink("Back to Jazz@Patronaat", "Index")</Button>
                         </div>
                         <div class="col-md-2"><hr /></div>
                         <div class="col-md-6">
-                            <img src="images/jazz_patronaat_-_thursday/header_-_artist_information_u294.png" />
+                            <img src="~/images/jazz_patronaat_-_thursday/header_-_artist_information_u294.png" />
                         </div>
                         <div class="col-md-3"><hr></div>
                     </div>
@@ -47,21 +45,21 @@
                 <div id="contentbody">
                     <div class="row">
 
-                    @foreach (var item in Model)
-                    {
-                    
-                        <div class="col-md-6">
-                            <h2>@Html.DisplayFor(modelItem => item.Zaal)</h2>
-                            <img src="images/jazz_patronaat_-_thursday/image_-_gare_du_nord_u301.png" />
-                            <h2>@Html.DisplayFor(modelItem => item.NaamEvenement)</h2>
-                            <p>Tekst van de band</p>
-                            <p>
-                                <b>Time:</b>@Html.DisplayFor(modelItem => item.BeginTijd) <br />
-                                <b>Price:</b>@Html.DisplayFor(modelItem => item.Prijs)
-                            </p>
-                            @Html.ActionLink("Book now", "Details", new { evenementId = item.EvenementId}, null)
-                        </div>
-                    }
+                        @foreach (var item in Model)
+                        {
+
+                            <div class="col-md-6">
+                                <h2>@Html.DisplayFor(modelItem => item.Zaal)</h2>
+                                <img src="~/images/jazz_patronaat_-_@Html.DisplayFor(modelItem => item.ImageUrlConcert)" />
+                                <h2>@Html.DisplayFor(modelItem => item.NaamEvenement)</h2>
+                                <p>Tekst van de band</p>
+                                <p>
+                                    <b>Time:</b>@Html.DisplayFor(modelItem => item.BeginTijd) <br />
+                                    <b>Price:</b>@Html.DisplayFor(modelItem => item.Prijs)
+                                </p>
+                                <button>@Html.ActionLink("Book now", "Details", new { evenementId = item.EvenementId }, null)</button>
+                            </div>
+                        }
 
                     </div>
                 </div>

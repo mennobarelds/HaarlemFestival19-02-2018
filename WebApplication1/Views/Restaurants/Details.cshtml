@@ -9,90 +9,23 @@
 <div>
     <h4>Restaurant</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Duur)
-        </dt>
+    <div>
+        <h4>@Model.NaamEvenement</h4>
+        <hr />
+        @using (Html.BeginForm())
+        {
+            Html.DisplayTextFor(model => model.EvenementId);
+            var dag = (int)Model.Dag;
+            <input type="number" name="prijs" value="@Model.Prijs" />
+            <input type="number" name="aantal" />
+            <input type="number" name="dag" value="@dag"/>
+            <input type="text" name="soortKaartje" value="0" hidden />
+            <input type="text" name="bijzonderheden" />
+            <input type="submit" value="Order now" />
 
-        <dd>
-            @Html.DisplayFor(model => model.Duur)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.BeginTijd)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.BeginTijd)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Dag)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Dag)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NaamEvenement)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NaamEvenement)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MaxPlaatsen)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MaxPlaatsen)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Prijs)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Prijs)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Locatie)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Locatie)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Sterren)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Sterren)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SoortKeuken)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SoortKeuken)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Sessies)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Sessies)
-        </dd>
-        <dd>
-            @Html.ActionLink("Order now", "AddKaartje", "Basket", new { evenementId = Model.EvenementId}, null)
-        </dd>
-    </dl>
+            // int evenementId, int aantal, int prijs, SoortKaartje soortKaartje, string bijzonderheden, Dag dag)
+        }
+    </div>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.EvenementId }) |

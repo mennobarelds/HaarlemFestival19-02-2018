@@ -6,8 +6,11 @@ namespace WebApplication1.Models
     [Table("Concerts")]
     public class Concert : Evenement
     {
-        public virtual string BandNaam { get; set; }
-        public virtual string Zaal { get; set; }
+        public string BandNaam { get; set; }
+        public string Zaal { get; set; }
+
+        [NotMapped]
+        public string ImageUrlConcert { get { return (Dag.ToString().ToLower() + "/" + ImageUrl); } }
 
         public Concert()
         {

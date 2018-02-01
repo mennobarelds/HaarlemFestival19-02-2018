@@ -4,9 +4,6 @@
     ViewBag.Title = "Concerts";
 }
 
-<h2>Concerts</h2>
-
-
 <div class="row">
     <div id="content-block">
         <div class="container">
@@ -19,13 +16,13 @@
                                 <p>Do you like some Jazz music? Then Jazz@Patronaat is the perfect event to go to! With over 18 bands performing in 4 days there must be something for you!</p>
                             </div>
                             <div class="col-md-2">
-                                <img src="images/jazz_patronaat/patronaat1.png" />
+                                <img src="~/images/jazz_patronaat/patronaat1.png" />
                             </div>
                             <div class="col-md-2">
-                                <img src="images/jazz_patronaat/patronaat2.png" />
+                                <img src="~/images/jazz_patronaat/patronaat2.png" />
                             </div>
                             <div class="col-md-2">
-                                <img src="images/jazz_patronaat/patronaat3.png" />
+                                <img src="~/images/jazz_patronaat/patronaat3.png" />
                             </div>
                         </div>
                     </div>
@@ -34,7 +31,7 @@
                 <div class="row">
                     <div id="contentbreak">
                         <div class="col-md-8 col-md-offset-3">
-                            <img src="images/jazz_patronaat/contentbreak.png" />
+                            <img src="~/images/jazz_patronaat/contentbreak.png" />
                         </div>
                     </div>
                 </div>
@@ -43,50 +40,50 @@
                     <div id="panels">
                         <div class="col-md-3">
                             <div class="informatie-blok">
-                                <img src="./images/jazz_patronaat/thursday.png" />
+                                <img src="~/images/jazz_patronaat/thursday.png" />
                                 <h3>Thursday</h3>
                                 <p>
                                     <b>Date:</b> Thursday - 26-07-2018<br />
                                     <b>Location:</b> Patronaat <br />
                                     <b>Performing:</b> Gumbo Kings; Evolve; Ntjam Rosie; Wicked Jazz Sounds; Tom Thomsom Assemble; Jonna Frazer.
                                 </p>
-                                @Html.ActionLink("More information about Thursday", "DetailsPage", new {day = 1 },null)
+                                <button>@Html.ActionLink("More information about Thursday", "DetailsPage", new { day = 1 }, null)</button>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="informatie-blok">
-                                <img src="./images/jazz_patronaat/friday.png" />
+                                <img src="~/images/jazz_patronaat/friday.png" />
                                 <h3>Friday</h3>
                                 <p>
                                     <b>Date:</b> Friday - 27-07-2018<br />
                                     <b>Location:</b> Patronaat <br />
                                     <b>Performing:</b> Fox & The Mayors; Uncle Sue; Chris Allen; Myles Sanko; Ruis Soundsystem; The Family XL
                                 </p>
-                                @Html.ActionLink("More information about Friday", "DetailsPage", new { day = 2 }, null)
+                                <button>@Html.ActionLink("More information about Friday", "DetailsPage", new { day = 2 }, null)</button>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="informatie-blok">
-                                <img src="./images/jazz_patronaat/saturday.png" />
+                                <img src="~/images/jazz_patronaat/saturday.png" />
                                 <h3>Saturday</h3>
                                 <p>
                                     <b>Date:</b> Saturday - 28-07-2018<br />
                                     <b>Location:</b> Patronaat <br />
                                     <b>Performing:</b> Gare du Nord; Rilan & The Bombadiers; Soul Six; Han Bennink; The Nordanians; Lilith Merlot
                                 </p>
-                                @Html.ActionLink("More information about Saturday", "DetailsPage", new { day = 3 }, null)
+                                <button>@Html.ActionLink("More information about Saturday", "DetailsPage", new { day = 3 }, null)</button>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="informatie-blok">
-                                <img src="./images/jazz_patronaat/sunday.png" />
+                                <img src="~/images/jazz_patronaat/sunday.png" />
                                 <h3>Sunday</h3>
                                 <p>
                                     <b>Date:</b> Sunday - 29-07-2018<br />
                                     <b>Location:</b> Patronaat <br />
                                     <b>Performing:</b> Ruis Soundsystem; Wicked Jazz Sounds; Evolve; The Nordanians; Gumbo Kings; Gare du Nord
                                 </p>
-                                @Html.ActionLink("More information about Sunday", "DetailsPage", new { day = 4 }, null)
+                                <button>@Html.ActionLink("More information about Sunday", "DetailsPage", new { day = 4 }, null)</button>
                             </div>
                         </div>
                     </div>
@@ -95,4 +92,3 @@
         </div>
     </div>
 </div>
-

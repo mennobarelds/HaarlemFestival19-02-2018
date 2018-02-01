@@ -31,10 +31,29 @@ namespace WebApplication1.Controllers
             return View("Index");
         }
 
+        [HttpPost]
+        public ActionResult Details(int evenementId, int aantal, int prijs, SoortKaartje soortKaartje, string bijzonderheden, int dag)
+        {
+            IBasketRepository basketRepos = new BasketRepository();
+            Kaartje kaartje = new Kaartje();
+            kaartje.Aantal = aantal;
+            kaartje.DagEvenement = dag;
+            kaartje.TotaalPrijs = prijs * aantal;
+            kaartje.BijzonderhedenRestaurant = bijzonderheden;
+            kaartje.SoortKaartje = (int)soortKaartje;
+            kaartje.DagEvenement = 3;
+            kaartje.EvenementId = evenementId;
+
+            Bestelling bestelling = basketRepos.AddBestelling(kaartje);
+
+            return View("Index");
+        }
+
         public ActionResult DetailsPage(int? day)
         {
             if (day != null)
             {
+                ViewBag.dag = (Dag)day;
                 return View(concertRepos.GetConcertsByDay(day));
             }
             else {
